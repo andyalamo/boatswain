@@ -1,0 +1,15 @@
+version: '3.2'
+services:
+  boatswain:
+    image: boatswainio/boatswain:latest
+    container_name: boatswain
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    pid: "host"
+    network_mode: "host"
+    cap_add:
+      - NET_ADMIN
+    restart: always
+    environment:
+      BOATSWAIN_TOKEN: ${Boatswain_TOKEN}
+      BOATSWAIN_PERIOD: default
